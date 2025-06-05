@@ -1,59 +1,41 @@
-# Ecostore
+# Tienda Online
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+Este proyecto es una aplicación web para una tienda en línea, desarrollada con Angular. Permite a los usuarios explorar productos, agregarlos al carrito, realizar compras y gestionar sus pedidos.
 
-## Development server
+---
 
-To start a local development server, run:
+## **Estructura de la Aplicación**
 
-```bash
-ng serve
-```
+### **Navegación Principal**
+- **Home:** Página principal con promociones y productos destacados.
+- **Productos:** Listado de todos los productos disponibles con opciones de búsqueda y filtrado.
+- **Categorías:** Organización de productos por categorías específicas.
+- **Carrito:** Visualización de los productos seleccionados antes de la compra.
+- **Perfil:** Gestión de datos personales e historial de pedidos.
+- **Contacto:** Formulario para enviar consultas al equipo de soporte.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### **Enlaces Secundarios (Footer)**
+- **Políticas:** Detalles sobre políticas de envío, devoluciones, y privacidad.
+- **FAQ:** Preguntas frecuentes para resolver dudas comunes.
+- **Acerca de:** Información sobre la tienda y su misión.
+- **Seguimiento de Pedido:** Herramienta para rastrear el estado de los pedidos realizados.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## **Tecnologías Utilizadas**
+- **Framework:** Angular.
+- **Backend:** Node.js (opcional, según configuración).
+- **Base de Datos:** MongoDB para el almacenamiento de datos.
+- **Estilos:** CSS/SCSS con soporte para diseños responsivos.
+- **Control de Versiones:** Git.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## **Cómo Ejecutar el Proyecto**
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### **Requisitos Previos**
+1. Node.js y npm instalados.
+2. Angular CLI instalado globalmente.
+   ```bash
+   npm install -g @angular/cli
+# EcoStore
