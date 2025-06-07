@@ -28,4 +28,7 @@
   .navbar-custom .btn-warning:hover {
     background-color: #ffa833;
   }
+.navbar-custom {
+  background-color: #0d2f66; /* Azul oscuro personalizado */
+}
 
