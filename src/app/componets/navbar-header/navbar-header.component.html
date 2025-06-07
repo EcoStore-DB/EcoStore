@@ -1,1 +1,59 @@
-<p>navbar-header works!</p>
+<nav class="navbar navbar-expand-lg navbar-custom shadow-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="fa-solid fa-leaf me-2"></i> ECOSTORE
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link text-light d-flex align-items-center" href="#">
+            <i class="fa-solid fa-location-dot me-2"></i> Deliver to Julio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Today's Deals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Customer Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Gift Cards</a>
+        </li>
+      </ul>
+      <form class="d-flex w-50" role="search">
+        <div class="input-group">
+          <select class="form-select border-0 rounded-start" aria-label="Category">
+            <option selected>All</option>
+            <option value="1">Books</option>
+            <option value="2">Electronics</option>
+            <option value="3">Clothing</option>
+          </select>
+          <input type="text" class="form-control border-0" placeholder="Search ECOSTORE" aria-label="Search">
+          <button class="btn btn-warning rounded-end" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item">
+          <a class="nav-link text-light d-flex align-items-center" href="#">
+            <i class="fa-solid fa-user me-2"></i> Account & Lists
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light d-flex align-items-center" href="#">
+            <i class="fa-solid fa-box-archive me-2"></i> Returns & Orders
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light d-flex align-items-center" href="#">
+            <i class="fa-solid fa-cart-shopping me-2"></i> Cart
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

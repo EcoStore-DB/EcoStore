@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-bottom-bar',
   imports: [],
+    standalone: true,
   templateUrl: './bottom-bar.component.html',
   styleUrl: './bottom-bar.component.css'
 })

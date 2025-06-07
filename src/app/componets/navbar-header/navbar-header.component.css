@@ -1,0 +1,31 @@
+
+  .navbar-custom {
+    background-color: #232f3e;
+    color: white;
+  }
+  .navbar-custom .navbar-brand,
+  .navbar-custom .nav-link {
+    color: white;
+    font-weight: 500;
+  }
+  .navbar-custom .navbar-brand:hover,
+  .navbar-custom .nav-link:hover {
+    color: #febd69;
+  }
+  .navbar-custom .form-select {
+    background-color: #f0f0f0;
+    border-right: none;
+  }
+  .navbar-custom .form-control {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .navbar-custom .btn-warning {
+    background-color: #febd69;
+    border: none;
+  }
+  .navbar-custom .btn-warning:hover {
+    background-color: #ffa833;
+  }
+
