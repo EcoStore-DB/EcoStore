@@ -1,62 +1,98 @@
-<nav class="navbar navbar-expand-lg navbar-custom shadow-lg">
-  <div class="container-fluid">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 position-relative z-3">
+  <div class="container">
+    <!-- Logo -->
     <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-      <i class="fa-solid fa-leaf me-2"></i> ECOSTORE
+      <i class="fa-solid fa-leaf fa-lg text-success me-2"></i> ECOSTORE
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+    <!-- Botón toggle móvil -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars text-dark"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+
+    <!-- Contenido colapsable -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <!-- Links principales -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active d-flex align-items-center" href="#">
-            <i class="fa-solid fa-location-dot me-2"></i> Entregas a domicilio
-          </a>
+        <li class="nav-item mx-2">
+          <a class="nav-link text-dark fw-semibold" href="#"><i class="fa-solid fa-location-dot me-1 text-success"></i> Entregas</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ofertas de hoy</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Atención al cliente</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tarjetas de regalo</a>
+        <li class="nav-item mx-2">
+          <a class="nav-link text-dark fw-semibold" href="#"><i class="fa-solid fa-tags me-1 text-success"></i> Descuentos</a>
         </li>
       </ul>
-      <form class="d-flex w-50">
-        <div class="input-group">
-          <select class="form-select border-secondary" aria-label="Categoría">
-            <option selected>Todo</option>
-            <option value="1">Libros</option>
-            <option value="2">Electrónica</option>
-            <option value="3">Ropa</option>
-          </select>
-          <input type="text" class="form-control border-secondary" placeholder="Buscar en ECOSTORE" aria-label="Buscar">
-          <button class="btn btn-warning" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
+
+      <!-- Buscador -->
+      <form class="d-flex mx-3 w-50" role="search">
+        <input class="form-control border border-secondary rounded-pill px-3" type="search" placeholder="Buscar productos..." aria-label="Buscar">
+        <button class="btn btn-success ms-2 rounded-pill px-3" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </form>
-      <ul class="navbar-nav ms-3 d-flex flex-row align-items-center justify-content-center">
-        <li class="nav-item text-center mx-2">
-          <a class="nav-link text-light d-flex flex-column align-items-center" href="#">
-            <i class="fa-solid fa-user mb-1"></i>
-            <span class="small">Cuenta y Listas</span>
+
+      <!-- Iconos usuario y carrito -->
+      <ul class="navbar-nav d-flex flex-row align-items-center ms-3">
+        <li class="nav-item mx-3">
+          <a class="nav-link text-dark d-flex flex-column align-items-center" href="#">
+            <i class="fa-solid fa-user fa-lg"></i>
           </a>
         </li>
-        <li class="nav-item text-center mx-2">
-          <a class="nav-link text-light d-flex flex-column align-items-center" href="#">
-            <i class="fa-solid fa-box-archive mb-1"></i>
-            <span class="small">Devoluciones y Pedidos</span>
+        <li class="nav-item mx-3 position-relative">
+          <a class="nav-link text-dark d-flex flex-column align-items-center" href="#">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
           </a>
-        </li>
-        <li class="nav-item text-center mx-2">
-          <a class="nav-link text-light d-flex flex-column align-items-center" href="#">
-            <i class="fa-solid fa-cart-shopping mb-1"></i>
-            <span class="small">Carrito</span>
-          </a>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            3
+            <span class="visually-hidden">artículos en carrito</span>
+          </span>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- Botón de categorías -->
+<div class="bg-white border-top shadow-sm categorias-bar position-relative z-2">
+  <div class="container py-2">
+    <button class="btn btn-link text-dark fw-semibold d-flex align-items-center" type="button"
+      data-bs-toggle="offcanvas" data-bs-target="#offcanvasCategorias" aria-controls="offcanvasCategorias">
+      <i class="fa-solid fa-list me-2"></i> Todas las categorías
+    </button>
+  </div>
+</div>
+
+<!-- Sidebar Offcanvas -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasCategorias" aria-labelledby="offcanvasCategoriasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title fw-bold" id="offcanvasCategoriasLabel">Todas las categorías</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <ul class="list-group list-group-flush">
+      <!-- Duplicamos el título dentro del menú -->
+      <li class="list-group-item d-flex align-items-center fw-bold bg-light">
+        <i class="fa-solid fa-list me-3 text-muted"></i> Todas las categorías
+      </li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-box-open me-3 text-muted"></i> Ver todo</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-car me-3 text-muted"></i> Coches</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-motorcycle me-3 text-muted"></i> Motos</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-cogs me-3 text-muted"></i> Motor y accesorios</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-shirt me-3 text-muted"></i> Moda y accesorios</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-building me-3 text-muted"></i> Inmobiliaria</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-laptop me-3 text-muted"></i> Tecnología y electrónica</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-futbol me-3 text-muted"></i> Deporte y ocio</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-bicycle me-3 text-muted"></i> Bicicletas</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-couch me-3 text-muted"></i> Hogar y jardín</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-blender-phone me-3 text-muted"></i> Electrodomésticos</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-book me-3 text-muted"></i> Cine, libros y música</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-child-reaching me-3 text-muted"></i> Niños y bebés</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-dice-d20 me-3 text-muted"></i> Coleccionismo</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-hammer me-3 text-muted"></i> Construcción y reformas</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-tractor me-3 text-muted"></i> Industria y agricultura</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-briefcase me-3 text-muted"></i> Empleo</li>
+      <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-concierge-bell me-3 text-muted"></i> Servicios</li>
+    </ul>
+  </div>
+</div>

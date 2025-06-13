@@ -1,34 +1,17 @@
 
-  .navbar-custom {
-    background-color: #232f3e;
-    color: white;
-  }
-  .navbar-custom .navbar-brand,
-  .navbar-custom .nav-link {
-    color: white;
-    font-weight: 500;
-  }
-  .navbar-custom .navbar-brand:hover,
-  .navbar-custom .nav-link:hover {
-    color: #febd69;
-  }
-  .navbar-custom .form-select {
-    background-color: #f0f0f0;
-    border-right: none;
-  }
-  .navbar-custom .form-control {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
-  .navbar-custom .btn-warning {
-    background-color: #febd69;
-    border: none;
-  }
-  .navbar-custom .btn-warning:hover {
-    background-color: #ffa833;
-  }
-.navbar-custom {
-  background-color: #0d2f66; /* Azul oscuro personalizado */
+.navbar {
+  z-index: 1030;
 }
 
+.categorias-bar {
+  z-index: 1025;
+}
+
+.offcanvas {
+  z-index: 1020;
+}
+
+/* Opcional: más suave el fondo gris del overlay */
+.offcanvas-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.2);
+}
