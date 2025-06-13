@@ -11,31 +11,34 @@
         </div>
     </div>
 
-    <!-- Carrusel de Categorías -->
-    <div id="categoriesCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div *ngFor="let category of categories; let i = index"
-                [class]="'carousel-item ' + (i === 0 ? 'active' : '')">
-                <div class="d-flex align-items-center justify-content-center"
-                    style="height: 300px; background-color: #000;">
-                    <img [src]="category.image" class="d-block w-100" alt="{{ category.name }}" *ngIf="category.image"
-                        style="max-height: 100%; max-width: 100%;">
-                    <i *ngIf="!category.image" class="fa fa-camera text-white" style="font-size: 50px;"></i>
-                </div>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>{{ category.name }}</h5>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-        </button>
+   <!-- Carrusel de Categorías -->
+<div id="categoriesCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div *ngFor="let category of categories; let i = index" [class]="'carousel-item ' + (i === 0 ? 'active' : '')">
+      <div class="carousel-category-item d-flex align-items-center justify-content-center">
+        <img
+          [src]="category.image"
+          class="d-block w-100"
+          alt="{{ category.name }}"
+          *ngIf="category.image"
+        >
+        <i *ngIf="!category.image" class="fa fa-camera text-white" style="font-size: 50px;"></i>
+      </div>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ category.name }}</h5>
+      </div>
     </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#categoriesCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
 
     <!-- Listado por Categorías -->
     <div *ngFor="let category of categories" class="mb-5">
