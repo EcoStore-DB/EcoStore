@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 py-5 bg-light">
   <h3>Mi Carrito</h3>
 
   <div *ngIf="carrito.length > 0; else vacio">
@@ -34,6 +34,6 @@
   </div>
 
   <ng-template #vacio>
-    <div class="alert alert-info mt-3">Tu carrito está vacío.</div>
+    <div class="alert alert-info mt-3 ">Tu carrito está vacío.</div>
   </ng-template>
 </div>
