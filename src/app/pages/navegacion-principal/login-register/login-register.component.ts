@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login-register',
-    imports: [CommonModule],
+    imports: [CommonModule,RouterModule],
   templateUrl: './login-register.component.html',
   styleUrls: ['./login-register.component.css']
 })

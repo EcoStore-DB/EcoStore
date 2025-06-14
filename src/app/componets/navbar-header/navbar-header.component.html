@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 position-relative z-3">
   <div class="container">
     <!-- Logo -->
-    <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+    <a class="navbar-brand fw-bold d-flex align-items-center" routerLink="/home">
       <i class="fa-solid fa-leaf fa-lg text-success me-2"></i> ECOSTORE
     </a>
 
@@ -17,10 +17,14 @@
       <!-- Links principales -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item mx-2">
-          <a class="nav-link text-dark fw-semibold" href="#"><i class="fa-solid fa-location-dot me-1 text-success"></i> Entregas</a>
+          <a class="nav-link text-dark fw-semibold" routerLink="/entregas">
+            <i class="fa-solid fa-location-dot me-1 text-success"></i> Entregas
+          </a>
         </li>
         <li class="nav-item mx-2">
-          <a class="nav-link text-dark fw-semibold" href="#"><i class="fa-solid fa-tags me-1 text-success"></i> Descuentos</a>
+          <a class="nav-link text-dark fw-semibold">
+            <i class="fa-solid fa-tags me-1 text-success"></i> Ofertas
+          </a>
         </li>
       </ul>
 
@@ -35,12 +39,12 @@
       <!-- Iconos usuario y carrito -->
       <ul class="navbar-nav d-flex flex-row align-items-center ms-3">
         <li class="nav-item mx-3">
-          <a class="nav-link text-dark d-flex flex-column align-items-center" href="#">
+          <a class="nav-link text-dark d-flex flex-column align-items-center"  routerLink="/login">
             <i class="fa-solid fa-user fa-lg"></i>
           </a>
         </li>
         <li class="nav-item mx-3 position-relative">
-          <a class="nav-link text-dark d-flex flex-column align-items-center" href="#">
+          <a class="nav-link text-dark d-flex flex-column align-items-center" routerLink="/carrito">
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
           </a>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -64,17 +68,17 @@
 </div>
 
 <!-- Sidebar Offcanvas -->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasCategorias" aria-labelledby="offcanvasCategoriasLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasCategorias" aria-labelledby="offcanvasCategoriasLabel" data-bs-backdrop="false">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title fw-bold" id="offcanvasCategoriasLabel">Todas las categorías</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
   </div>
   <div class="offcanvas-body p-0">
     <ul class="list-group list-group-flush">
-      <!-- Duplicamos el título dentro del menú -->
       <li class="list-group-item d-flex align-items-center fw-bold bg-light">
         <i class="fa-solid fa-list me-3 text-muted"></i> Todas las categorías
       </li>
+      <!-- Estos enlaces podrían navegar a rutas como /categoria/motos si lo implementas -->
       <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-box-open me-3 text-muted"></i> Ver todo</li>
       <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-car me-3 text-muted"></i> Coches</li>
       <li class="list-group-item d-flex align-items-center"><i class="fa-solid fa-motorcycle me-3 text-muted"></i> Motos</li>

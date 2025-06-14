@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-header',
-  imports: [],
-    standalone: true,
+  standalone: true,
+  imports: [RouterModule],
+
   templateUrl: './navbar-header.component.html',
   styleUrl: './navbar-header.component.css'
 })

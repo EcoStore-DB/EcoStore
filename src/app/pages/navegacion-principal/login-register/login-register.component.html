@@ -8,13 +8,13 @@
         <form *ngIf="isLogin"  class="form-section active-section">
           <div class="mb-3">
             <label for="loginEmail" class="form-label">Correo electrónico</label>
-            <input #loginEmailInput id="loginEmail" type="email" class="form-control" placeholder="correo@ejemplo.com" required>
+            <input #loginEmailInput id="loginEmail" type="email" class="form-control" placeholder="correo@ejemplo.com" >
           </div>
           <div class="mb-3">
             <label for="loginPassword" class="form-label">Contraseña</label>
-            <input id="loginPassword" type="password" class="form-control" placeholder="Contraseña" required>
+            <input id="loginPassword" type="password" class="form-control" placeholder="Contraseña" >
           </div>
-          <button type="submit" class="btn btn-success w-100">Ingresar</button>
+          <button type="submit" class="btn btn-success w-100"  routerLink="/cuenta">Ingresar</button>
         </form>
 
         <!-- Register Form -->

@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],  
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+[x: string]: any;
   // Datos de ejemplo para categorías
   // Ahora puedes agregar la propiedad 'image' para cada categoría si lo deseas
   categories = [
@@ -46,4 +48,3 @@ export class HomeComponent {
     // Aquí podrías navegar a una página de detalles o mostrar un modal
   }
 }
-// Nota: En el archivo HTML ya se usa la propiedad 'image' de cada categoría para mostrar la imagen en el carrusel.
