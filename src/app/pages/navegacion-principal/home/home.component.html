@@ -1,7 +1,7 @@
 <div class="container mt-2">
   <!-- Título y Filtro de Categorías -->
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="fw-bold">Ofertas</h2>
+    <h2 class="fw-bold">Ofertas </h2>
     <div>
       <label for="orderSelect" class="me-2">Ordenar por:</label>
       <select id="orderSelect" class="form-select w-auto" (change)="orderProducts($event)">
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <!-- Carrusel de Categorías -->
+  <!-- Carrusel de Categorias -->
   <div id="categoriesCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div *ngFor="let category of categories; let i = index" [class]="'carousel-item ' + (i === 0 ? 'active' : '')">
