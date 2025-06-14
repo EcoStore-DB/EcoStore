@@ -16,12 +16,7 @@
     <div class="carousel-inner">
       <div *ngFor="let category of categories; let i = index" [class]="'carousel-item ' + (i === 0 ? 'active' : '')">
         <div class="carousel-category-item d-flex align-items-center justify-content-center">
-          <img
-            [src]="category.image"
-            class="d-block w-100"
-            alt="{{ category.name }}"
-            *ngIf="category.image"
-          >
+          <img [src]="category.image" class="d-block w-100" alt="{{ category.name }}" *ngIf="category.image">
           <i *ngIf="!category.image" class="fa fa-camera text-white" style="font-size: 50px;"></i>
         </div>
         <div class="carousel-caption d-none d-md-block">
@@ -46,17 +41,17 @@
       <div *ngFor="let product of getProductsByCategory(category.id)" class="col-6 col-md-4 col-lg-3 mb-4">
         <div class="card shadow-sm">
           <div class="card-img-top d-flex align-items-center justify-content-center"
-               style="height: 200px; background-color: #000;">
+            style="height: 200px; background-color: #000;">
             <img [src]="product.image" [alt]="product.name" *ngIf="product.image"
-                 style="max-height: 100%; max-width: 100%;">
+              style="max-height: 100%; max-width: 100%;">
             <i *ngIf="!product.image" class="fa fa-camera text-white" style="font-size: 30px;"></i>
           </div>
           <div class="card-body">
             <h5 class="card-title text-truncate">{{ product.name }}</h5>
             <p class="card-text text-success fw-bold">{{ product.price | currency }}</p>
-            <button class="btn btn-success w-100 d-flex align-items-center justify-content-center" 
-                  >
-              <i class="fa-solid fa-cart-shopping me-2" routerLink="/productos"></i> Comprar
+            <button class="btn btn-success w-100 d-flex align-items-center justify-content-center"
+              routerLink="/productos">
+              <i class="fa-solid fa-cart-shopping me-2"></i> Comprar
             </button>
           </div>
         </div>
@@ -67,27 +62,27 @@
 
   <div class="container py-4">
     <article class="pb-3 mb-4 border-bottom text-center">
-        <span class="fs-4">
-            <button class="btn btn-primary btn-lg" type="button">Cargar más</button>
-        </span>
+      <span class="fs-4">
+        <button class="btn btn-primary btn-lg" type="button">Cargar más</button>
+      </span>
     </article>
 
     <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-            <div class="h-100 p-5 text-bg-dark rounded-3">
-                <h2>Change the background</h2>
-                <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
-                    Then, mix and match with additional component themes and more.</p>
-            </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Change the background</h2>
+          <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
+            Then, mix and match with additional component themes and more.</p>
         </div>
-        <div class="col-md-6">
-            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                <h2>Add borders</h2>
-                <p>Or, keep it light and add a border for some added definition to the boundaries of your content.
-                    Be sure to look under the hood at the source HTML here as we've adjusted the alignment and
-                    sizing of both column's content for equal-height.</p>
-            </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>Add borders</h2>
+          <p>Or, keep it light and add a border for some added definition to the boundaries of your content.
+            Be sure to look under the hood at the source HTML here as we've adjusted the alignment and
+            sizing of both column's content for equal-height.</p>
         </div>
+      </div>
     </div>
 
-</div>
+  </div>
