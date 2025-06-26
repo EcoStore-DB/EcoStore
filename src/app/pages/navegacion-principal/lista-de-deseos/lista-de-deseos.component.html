@@ -1,0 +1,56 @@
+<div class="container py-4">
+  <h3 class="mb-4 text-success"><i class="fa-solid fa-heart me-2"></i>Mi Lista de Deseos</h3>
+  <div *ngIf="listaDeseos.length > 0; else vacio">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of listaDeseos; let i = index">
+            <td class="text-center">
+              <i class="fa-solid fa-gift fa-lg text-success"></i>
+            </td>
+            <td class="fw-bold">{{ prod.nombre }}</td>
+            <td class="text-success fw-bold">{{ prod.precio | currency }}</td>
+            <td class="text-center">
+              <div class="btn-group" role="group" aria-label="Acciones de producto">
+                <button class="btn btn-outline-success  d-flex align-items-center justify-content-center" [routerLink]="['/productos', prod.id_producto]">
+                  <i class="fa-solid fa-eye me-1"></i> 
+                </button>
+                <button class="btn btn-danger btn-sm  d-flex align-items-center justify-content-center" (click)="eliminarDeDeseos(i)">
+                  <i class="fa-solid fa-trash me-1"></i> 
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ng-template #vacio>
+    <div class="alert alert-info text-center py-5 rounded-4 shadow-sm">
+      <i class="fa-solid fa-heart-crack fa-2x mb-3 text-secondary"></i>
+      <div class="fw-bold mb-2">No tienes productos en tu lista de deseos.</div>
+      <div class="text-muted">¡Agrega tus favoritos para verlos aquí!</div>
+    </div>
+  </ng-template>
+</div>
+
+<style>
+.wishlist-card {
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.wishlist-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(40,167,69,0.15);
+}
+.btn-group .btn + .btn {
+  margin-left: 0.5rem;
+}
+</style>

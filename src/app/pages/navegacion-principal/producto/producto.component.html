@@ -1,0 +1,108 @@
+<body>
+
+<div class="container mt-4" *ngIf="!loading && producto">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-7">
+      <div class="card shadow-lg rounded-4 p-4">
+        <div class="d-flex flex-column flex-md-row align-items-center">
+          <!-- Ícono grande tipo home -->
+          <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-success bg-opacity-10 rounded-4 me-md-4 mb-3 mb-md-0" style="width: 160px; height: 160px;">
+            <i class="fa fa-box-open text-success" style="font-size: 80px;"></i>
+          </div>
+          <div class="flex-grow-1 w-100">
+            <h2 class="fw-bold mb-2">{{ producto.nombre }}</h2>
+            <span class="badge bg-success mb-2">{{ producto.categoria }}</span>
+            <p class="text-success fw-bold fs-3 mb-3">{{ producto.precio | currency:'EUR' }}</p>
+            <p *ngIf="producto.descripcion" class="mb-3"><span class="fw-semibold">Descripción:</span> {{ producto.descripcion }}</p>
+            <ul class="list-unstyled mb-3">
+              <li *ngIf="producto.estado"><strong>Estado:</strong> {{ producto.estado }}</li>
+              <li *ngIf="producto.marca"><strong>Marca:</strong> {{ producto.marca }}</li>
+              <li *ngIf="producto.modelo"><strong>Modelo:</strong> {{ producto.modelo }}</li>
+              <li *ngIf="producto.color"><strong>Color:</strong> {{ producto.color }}</li>
+              <li *ngIf="producto.stock !== undefined"><strong>Stock:</strong> {{ producto.stock }}</li>
+              <li *ngIf="producto.sostenible !== undefined"><strong>Sostenible:</strong> 
+                <span [ngClass]="producto.sostenible ? 'text-success' : 'text-danger'">
+                  {{ producto.sostenible ? 'Sí' : 'No' }}
+                </span>
+              </li>
+              <li *ngIf="producto.promedio_calificacion !== undefined && producto.promedio_calificacion !== null">
+                <strong>Calificación:</strong>
+                <span class="text-warning">
+                  <ng-container *ngFor="let star of [1,2,3,4,5]; let idx = index">
+                    <i class="fa-star" [ngClass]="producto.promedio_calificacion >= star ? 'fa-solid text-warning' : 'fa-regular text-secondary'"></i>
+                  </ng-container>
+                  ({{ producto.promedio_calificacion }}/5)
+                </span>
+              </li>
+            </ul>
+            <button class="btn btn-primary w-100 mb-2">
+              <i class="fa-solid fa-cart-plus me-2"></i>Comprar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reseñas (estéticas, ejemplo estático) -->
+  <div class="row mt-5">
+    <div class="col-12 col-md-8 col-lg-7 mx-auto">
+      <div class="bg-white rounded-4 shadow-sm p-4">
+        <h4 class="fw-bold mb-3"><i class="fa-solid fa-star text-warning me-2"></i>Reseñas</h4>
+        <div>
+          <div class="border-bottom pb-3 mb-3">
+            <div class="d-flex align-items-center mb-1">
+              <i class="fa-solid fa-user-circle fa-lg text-secondary me-2"></i>
+              <span class="fw-semibold">María López</span>
+              <span class="ms-3 text-warning">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </span>
+            </div>
+            <div class="text-muted small mb-1">12 de junio de 2024</div>
+            <div>¡Me encantó el producto! Llegó rápido y en perfecto estado.</div>
+          </div>
+          <div class="border-bottom pb-3 mb-3">
+            <div class="d-flex align-items-center mb-1">
+              <i class="fa-solid fa-user-circle fa-lg text-secondary me-2"></i>
+              <span class="fw-semibold">Carlos Pérez</span>
+              <span class="ms-3 text-warning">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </span>
+            </div>
+            <div class="text-muted small mb-1">5 de mayo de 2024</div>
+            <div>Buen producto, aunque el empaque podría mejorar.</div>
+          </div>
+          <div>
+            <div class="d-flex align-items-center mb-1">
+              <i class="fa-solid fa-user-circle fa-lg text-secondary me-2"></i>
+              <span class="fw-semibold">Usuario anónimo</span>
+              <span class="ms-3 text-warning">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </span>
+            </div>
+            <div class="text-muted small mb-1">20 de abril de 2024</div>
+            <div>Funciona bien, pero esperaba más características.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="text-center py-5">
+  <div class="spinner-border text-success" role="status"></div>
+</div>
+
+</body>

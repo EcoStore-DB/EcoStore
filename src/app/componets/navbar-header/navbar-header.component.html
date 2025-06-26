@@ -1,0 +1,110 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 position-relative z-3">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" [routerLink]="['/home']" routerLinkActive="active">
+      <i class="fa-solid fa-leaf fa-lg text-success me-2"></i> ECOSTORE
+    </a>
+
+    <!-- Botón toggle móvil -->
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+      aria-controls="navbarContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa-solid fa-bars text-dark"></i>
+    </button>
+
+    <!-- Contenido colapsable -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <!-- Links principales -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item mx-2">
+          <a class="nav-link text-dark fw-semibold" [routerLink]="['/entregas']" routerLinkActive="active">
+            <i class="fa-solid fa-location-dot me-1 text-success"></i> Entregas
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link text-dark fw-semibold" [routerLink]="['/lista']" routerLinkActive="active">
+            <i class="fa-solid fa-tags me-1 text-success"></i> Lista de deseos
+          </a>
+        </li>
+      </ul>
+
+      <!-- Buscador -->
+      <form class="d-flex mx-3 w-50 position-relative navbar-search-container" role="search" (ngSubmit)="onSearch()">
+        <div class="position-relative w-100">
+          <input
+            class="form-control border border-secondary rounded-pill px-5"
+            type="search"
+            placeholder="Buscar productos..."
+            aria-label="Buscar"
+            [(ngModel)]="searchTerm"
+            name="searchTerm"
+            required
+            (input)="onInputChange()"
+            (focus)="inputFocused = true"
+            (blur)="onInputBlur()"
+            autocomplete="off"
+            style="padding-left: 2.5rem;"
+          />
+          <!-- Icono de búsqueda dentro del input -->
+          <span
+            class="position-absolute top-50 start-0 translate-middle-y ps-3 text-secondary"
+            style="pointer-events: none;"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+          <!-- Dropdown de sugerencias -->
+          <ul
+            *ngIf="suggestions.length > 0 && inputFocused"
+            class="list-group position-absolute w-100 mt-2 shadow"
+            style="z-index: 1050;"
+          >
+            <li
+              class="list-group-item list-group-item-action"
+              *ngFor="let suggestion of suggestions"
+              (click)="selectSuggestion(suggestion)"
+              style="cursor: pointer;"
+            >
+              {{ suggestion.nombre }} <span class="text-muted">({{ suggestion.categoria }})</span>
+            </li>
+          </ul>
+        </div>
+      </form>
+
+      <!-- Iconos usuario y carrito -->
+      <ul class="navbar-nav d-flex flex-row align-items-center ms-3">
+        <li class="nav-item mx-3">
+          <a
+            class="nav-link text-dark d-flex flex-column align-items-center"
+            [routerLink]="['/login']"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-user fa-lg"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-3 position-relative">
+          <a
+            class="nav-link text-dark d-flex flex-column align-items-center"
+            [routerLink]="['/carrito']"
+            routerLinkActive="active"
+          >
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+          </a>
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            *ngIf="carritoCantidad > 0"
+          >
+            {{ carritoCantidad }}
+            <span class="visually-hidden">artículos en carrito</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

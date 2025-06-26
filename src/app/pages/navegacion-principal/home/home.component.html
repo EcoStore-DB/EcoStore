@@ -1,0 +1,84 @@
+<div class="container mt-2">
+
+  <!-- Carrusel de mensajes ecológicos -->
+  <div id="ecoCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+    <div class="carousel-inner rounded shadow">
+      <div class="carousel-item active" style="background: #e0ffe0;">
+        <div class="d-flex flex-column align-items-center justify-content-center py-5">
+          <i class="fa-solid fa-recycle fa-3x text-success mb-3"></i>
+          <h4 class="fw-bold text-success">¡Recicla hoy para un mejor mañana!</h4>
+          <p class="text-secondary">Cada pequeño esfuerzo cuenta para cuidar nuestro planeta.</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background: #e0f7fa;">
+        <div class="d-flex flex-column align-items-center justify-content-center py-5">
+          <i class="fa-solid fa-leaf fa-3x text-primary mb-3"></i>
+          <h4 class="fw-bold text-primary">Reduce, Reutiliza, Recicla</h4>
+          <p class="text-secondary">Dale una segunda vida a los materiales y ayuda al medio ambiente.</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background: #fff3cd;">
+        <div class="d-flex flex-column align-items-center justify-content-center py-5">
+          <i class="fa-solid fa-earth-americas fa-3x text-warning mb-3"></i>
+          <h4 class="fw-bold text-warning">¡El planeta te necesita!</h4>
+          <p class="text-secondary">Separar residuos es un acto de amor por la Tierra.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#ecoCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#ecoCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Título y Filtro de Productos -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">Ofertas </h2>
+    <div>
+      <label for="orderSelect" class="me-2">Ordenar por:</label>
+      <select id="orderSelect" class="form-select w-auto" (change)="orderProducts($event)">
+        <option value="asc">Precio: Menor a Mayor</option>
+        <option value="desc">Precio: Mayor a Menor</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Listado de Productos -->
+  <div class="row">
+    <div *ngFor="let product of visibleProducts" class="col-6 col-md-4 col-lg-3 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-img-top d-flex align-items-center justify-content-center"
+          style="height: 200px; background-color: #000;">
+          <!-- Ícono de producto -->
+          <i class="fa fa-box-open text-white" style="font-size: 40px;"></i>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-truncate">{{ product.nombre }}</h5>
+          <p class="card-text text-success fw-bold">{{ product.precio | currency }}</p>
+          <p class="card-text text-muted mb-1">{{ product.categoria }}</p>
+          <div class="btn-group w-100" role="group">
+            <button class="btn btn-outline-success d-flex align-items-center justify-content-center" [routerLink]="['/productos', product.id_producto]">
+              <i class="fa-solid fa-eye me-1"></i>
+            </button>
+            <button class="btn btn-success d-flex align-items-center justify-content-center"
+              (click)="agregarAlCarrito(product)">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+            <button class="btn btn-outline-warning d-flex align-items-center justify-content-center"
+              (click)="agregarListaDeseos(product)">
+              <i class="fa-solid fa-star"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón de Cargar más -->
+  <div class="text-center py-4">
+    <button *ngIf="!endOfList" class="btn btn-primary btn-lg" type="button" (click)="loadMore()">Cargar más</button>
+    <div *ngIf="endOfList" class="text-muted">Ya llegó al final de la página</div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.form-section {
+  transition: opacity 0.4s ease-in-out;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-wrapper {
+  flex-grow: 1;
+}
+
+/* Opcional para que no cambie la altura si quieres animar */

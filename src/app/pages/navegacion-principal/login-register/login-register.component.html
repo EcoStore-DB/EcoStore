@@ -1,0 +1,47 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-6 col-lg-5">
+      <div class="login-register-container shadow rounded p-4 bg-white">
+        <h2 class="mb-4 text-center">{{ isLogin ? 'Iniciar sesión' : 'Registrarse' }}</h2>
+
+        <!-- Login Form -->
+        <form *ngIf="isLogin"  class="form-section active-section">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Correo electrónico</label>
+            <input #loginEmailInput id="loginEmail" type="email" class="form-control" placeholder="correo@ejemplo.com" >
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Contraseña</label>
+            <input id="loginPassword" type="password" class="form-control" placeholder="Contraseña" >
+          </div>
+          <button type="submit" class="btn btn-success w-100"  routerLink="/cuenta">Ingresar</button>
+        </form>
+
+        <!-- Register Form -->
+        <form *ngIf="!isLogin"  class="form-section">
+          <div class="mb-3">
+            <label for="registerName" class="form-label">Nombre completo</label>
+            <input #registerNameInput id="registerName" type="text" class="form-control" placeholder="Tu nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Correo electrónico</label>
+            <input id="registerEmail" type="email" class="form-control" placeholder="correo@ejemplo.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword" class="form-label">Contraseña</label>
+            <input id="registerPassword" type="password" class="form-control" placeholder="Contraseña" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+        </form>
+
+        <!-- Switch Text -->
+        <p class="mt-3 text-center small">
+          {{ isLogin ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?' }}
+          <a class="text-success text-decoration-underline" style="cursor:pointer" (click)="toggleForm()">
+            {{ isLogin ? 'Regístrate aquí' : 'Inicia sesión aquí' }}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

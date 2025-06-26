@@ -1,0 +1,146 @@
+<div class="container my-5 py-5 bg-white rounded-4 shadow-lg">
+  <!-- Encabezado -->
+  <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+    <i class="fa-solid fa-cart-shopping fa-2x text-success me-3"></i>
+    <h2 class="mb-0 fw-bold">Mi Carrito</h2>
+  </div>
+
+  <!-- Carrito con productos -->
+  <div *ngIf="!pagano">
+    <div *ngIf="carrito.length > 0; else vacio">
+      <div class="table-responsive mb-4">
+        <table class="table align-middle table-hover table-borderless">
+          <thead class="bg-success bg-opacity-10">
+            <tr>
+              <th class="ps-4">Producto</th>
+              <th class="text-center">Cantidad</th>
+              <th class="text-end">Precio</th>
+              <th class="text-end">Total</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of carrito; let i = index" class="align-middle">
+              <td class="fw-semibold ps-4">
+                <i class="fa-solid fa-box-open text-success me-2"></i>{{ item.nombre }}
+              </td>
+              <td class="text-center">
+                <div class="input-group input-group-sm justify-content-center" style="max-width: 110px;">
+                  <button class="btn btn-outline-secondary" type="button" (click)="cambiarCantidad(i, -1)" [disabled]="item.cantidad <= 1">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <input type="number" class="form-control text-center border-0" [value]="item.cantidad" min="1" readonly>
+                  <button class="btn btn-outline-secondary" type="button" (click)="cambiarCantidad(i, 1)">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+              </td>
+              <td class="text-end">${{ item.precio.toFixed(2) }}</td>
+              <td class="text-end fw-bold">${{ (item.precio * item.cantidad).toFixed(2) }}</td>
+              <td class="text-center">
+                <button class="btn btn-outline-danger btn-sm rounded-circle" (click)="eliminarItem(i)" title="Eliminar">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Total y botón de pago -->
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 gap-3">
+        <h4 class="fw-bold mb-0">Total: <span class="text-success">${{ total.toFixed(2) }}</span></h4>
+        <button class="btn btn-success btn-lg px-5 shadow" (click)="procederPago()">
+          <i class="fa-solid fa-credit-card me-2"></i>Proceder al Pago
+        </button>
+      </div>
+    </div>
+
+    <!-- Carrito vacío -->
+    <ng-template #vacio>
+      <div class="d-flex flex-column align-items-center justify-content-center py-5">
+        <i class="fa-solid fa-cart-arrow-down fa-3x text-secondary mb-3"></i>
+        <h5 class="fw-bold text-secondary mb-2">Tu carrito está vacío</h5>
+        <p class="text-muted mb-0">Agrega productos para comenzar tu compra.</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Paso de pago estético tipo Enba -->
+  <div *ngIf="pagano" class="mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-lg rounded-4">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i class="fa-solid fa-credit-card fa-2x text-success me-3"></i>
+              <h4 class="mb-0 fw-bold text-success">Finalizar compra</h4>
+            </div>
+            <div *ngIf="!pagoExitoso" class="row g-4">
+              <!-- Resumen del pedido con scroll si hay muchos productos -->
+              <div class="col-md-5 border-end">
+                <h6 class="fw-bold mb-3">Resumen</h6>
+                <div style="max-height: 220px; overflow-y: auto;">
+                  <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item d-flex justify-content-between align-items-center py-2 border-0" *ngFor="let item of carrito">
+                      <span>
+                        <span class="fw-semibold">{{ item.nombre }}</span>
+                        <span class="text-muted small">x{{ item.cantidad }}</span>
+                      </span>
+                      <span class="fw-bold">${{ (item.precio * item.cantidad).toFixed(2) }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                  <span class="fw-bold">Total</span>
+                  <span class="fw-bold text-success fs-5">${{ total.toFixed(2) }}</span>
+                </div>
+              </div>
+              <!-- Formulario de pago -->
+              <div class="col-md-7">
+                <form (ngSubmit)="finalizarPago()">
+                  <h6 class="fw-bold mb-3">Datos de pago</h6>
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Nombre en la tarjeta</label>
+                    <input type="text" class="form-control" placeholder="Ej: Juan Pérez">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Número de tarjeta</label>
+                    <input type="text" class="form-control" maxlength="19" placeholder="1234 5678 9012 3456">
+                  </div>
+                  <div class="row">
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-semibold">Vencimiento</label>
+                      <input type="text" class="form-control" maxlength="5" placeholder="MM/AA">
+                    </div>
+                    <div class="col-6 mb-3">
+                      <label class="form-label fw-semibold">CVV</label>
+                      <input type="password" class="form-control" maxlength="4" placeholder="123">
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label fw-semibold">Correo de contacto</label>
+                    <input type="email" class="form-control" placeholder="correo@ejemplo.com">
+                  </div>
+                  <button type="submit" class="btn btn-success w-100 btn-lg mb-2">
+                    <i class="fa-solid fa-lock me-2"></i>Pagar ${{ total.toFixed(2) }}
+                  </button>
+                  <button type="button" class="btn btn-link w-100 text-secondary" (click)="volverAlCarrito()">
+                    <i class="fa-solid fa-arrow-left me-1"></i>Volver al carrito
+                  </button>
+                </form>
+              </div>
+            </div>
+            <!-- Mensaje de pago exitoso -->
+            <div *ngIf="pagoExitoso" class="text-center py-5">
+              <i class="fa-solid fa-circle-check fa-3x text-success mb-3"></i>
+              <h4 class="fw-bold text-success mb-2">¡Pago realizado con éxito!</h4>
+              <p class="text-muted">Gracias por tu compra. Serás redirigido al carrito en unos segundos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

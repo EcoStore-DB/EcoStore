@@ -1,0 +1,47 @@
+.carousel-category-item {
+  height: 550px;
+  background-color: #000;
+  position: relative;
+  color: white;
+}
+
+/* Dispositivos grandes → medianos */
+@media (max-width: 1024px) {
+  .carousel-category-item {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-category-item {
+    height: 350px;
+  }
+}
+
+/* Tablets pequeñas y móviles grandes */
+@media (max-width: 600px) {
+  .carousel-category-item {
+    height: 280px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 400px) {
+  .carousel-category-item {
+    height: 220px;
+  }
+}
+.carousel-caption {
+  bottom: 20px;
+  background: rgba(0, 0, 0, 0.5); /* fondo semitransparente */
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+/* Texto más pequeño en móviles */
+@media (max-width: 576px) {
+  .carousel-caption h5 {
+    font-size: 0.9rem;
+  }
+}

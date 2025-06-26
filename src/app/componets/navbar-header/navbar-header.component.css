@@ -1,0 +1,17 @@
+
+.navbar {
+  z-index: 1030;
+}
+
+.categorias-bar {
+  z-index: 1025;
+}
+
+.offcanvas {
+  z-index: 1020;
+}
+
+/* Opcional: más suave el fondo gris del overlay */
+.offcanvas-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.2);
+}

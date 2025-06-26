@@ -1,0 +1,35 @@
+   .navbar-custom {
+      background-color: #232f3e;
+      color: white;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .form-control,
+    .navbar-custom .btn {
+      color: white;
+    }
+    .navbar-custom .nav-link:hover {
+      text-decoration: underline;
+    }
+    .navbar-custom .input-group-text {
+      background-color: #febd69;
+      border: none;
+    }
+    .navbar-custom .form-control {
+      border: none;
+    }
+    .footer-custom {
+      background-color: #232f3e;
+      color: white;
+      padding: 20px 0;
+    }
+    .footer-custom a {
+      color: white;
+      text-decoration: none;
+    }
+    .footer-custom a:hover {
+      text-decoration: underline;
+    }
+    .footer-custom .footer-section {
+      margin-bottom: 20px;
+    }
